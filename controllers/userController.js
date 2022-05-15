@@ -48,4 +48,30 @@ module.exports = {
       .then(() => res.json({ message: 'User and thoughts deleted!' }))
       .catch((err) => res.status(500).json(err));
       },
+      createFriend(req, res) {
+        User.findOneAndUpdate({_id: params.id}, {$push: { friends: params.friendId}}, {new: true})
+        .populate({path: 'friends', select: ('-__v')})
+        .select('-__v')
+        .then(dbUsersData => {
+            if (!dbUsersData) {
+                res.status(404).json({message: 'No User with this particular ID!'});
+                return;
+            }
+        res.json(dbUsersData);
+        })
+        .catch(err => res.json(err));
+      },
+      deleteFriend({ params }, res) {
+        User.findOneAndUpdate({_id: params.id}, {$pull: { friends: params.friendId}}, {new: true})
+        .populate({path: 'friends', select: '-__v'})
+        .select('-__v')
+        .then(dbUsersData => {
+            if(!dbUsersData) {
+                res.status(404).json({message: 'No User with this particular ID!'});
+                return;
+            }
+            res.json(dbUsersData);
+        })
+        .catch(err => res.status(400).json(err));
+      }
 }
