@@ -15,4 +15,5 @@ Delete a certain thought.
 Delete a specific username, and in doing so also delete all its linked thoughts and reactions as well.  
 
 The link to my GitHub repo is here: https://github.com/fchang1720/NoSQL-Social-Network-API  
-A walkthrough video of my application can be found here: https://drive.google.com/file/d/1CzBUvIMnEaigopFPPjVsGtUlI8MkPANB/view
+A walkthrough video of my application can be found here: https://drive.google.com/file/d/1CzBUvIMnEaigopFPPjVsGtUlI8MkPANB/view  
+![](https://drive.google.com/file/d/1CzBUvIMnEaigopFPPjVsGtUlI8MkPANB/view)
